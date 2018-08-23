@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>Web Browser Plugin</id>
+    <name>Web Browser Plugin</name>
+    <vendor email="461798074@qq.com" url="https://github.com/lingfengsan">lingfengsan</vendor>
+
+    <description><![CDATA[
+    An awesome idea browser<br>
+    <!--<em>most HTML tags may be used</em>-->
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="143.0"/>
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable instance="me.lingfengsan.webbrowser.WebBrowserSetting"/>
+        <toolWindow id="web browser tool window" anchor="left"
+                    factoryClass="me.lingfengsan.webbrowser.WebBrowserToolWindowFactory"/>
+
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="Open Url" class="me.lingfengsan.webbrowser.OpenUrlAction"
+                text="OpenUrlAction" description="oepn"/>
+    </actions>
+    <application-components>
+        <component>
+            <implementation-class>me.lingfengsan.webbrowser.WebBrowserSetting</implementation-class>
+        </component>
+    </application-components>
+</idea-plugin>

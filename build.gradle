@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.3.5'
+}
+
+group 'me.lingfengsan'
+version '0.0.1'
+
+apply plugin: "org.jetbrains.intellij"
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+sourceSets {
+    main {
+        java.srcDir 'src/main/java'
+        resources.srcDir 'src/main/resources'
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+intellij {
+    intellij.updateSinceUntilBuild false
+    localPath 'D:\\software\\JetBrains\\IntelliJ IDEA Community Edition 2018.2'
+//    version = '2018.1' //调试我们插件的版本
+    sandboxDirectory = project.rootDir.canonicalPath + "/.sandbox" //插件生成的临时文件的地址，可以省略
+}
